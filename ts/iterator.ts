@@ -23,3 +23,31 @@ while(true){
   }
   console.log(result.value);
 }
+
+console.log("---------- for-of loop");
+
+const array = ['a', 'b', 'c'];
+for(const num of array) {
+  console.log(num);
+}
+
+const obj = {
+  [Symbol.iterator]: function(){
+    let count = 1;
+    const iterator = {
+      next: function(){
+        return  (count <= 10)
+            ? { value: count++,   done: false }
+            : { value: undefined, done: true };
+      }
+    };
+    return iterator;
+  }
+};
+
+for(const num of obj){
+  console.log(num);
+}
+
+console.log("---------- Spread syntax");
+console.log(...obj)

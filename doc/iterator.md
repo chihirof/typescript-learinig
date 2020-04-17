@@ -17,8 +17,32 @@
 
 - iteratorの最後のvalueは何を返すべきなのか？例をみると呼び出された回数？
 
-## 反復処理(iterable)プロトコル
+## 反復可能(iterable)プロトコル
 
+反復可能であるために、@@iterator メソッドを実装する必要がある。  
+つまり、オブジェクトが `Symbol.iterator` 定数にて利用できる@@iterator キーのプロパティを持つ必要がある。  
+プロパティ `Symbol.iterator` の値には、反復子プロトコルに準拠するオブジェクトを返す引数なしの関数が与えられる。
+
+## 反復子プロトコル
+
+next() メソッドを実装していれば(=イテレーター)、オブジェクトは反復子になる。
+
+## ビルトイン反復可能オブジェクト
+
+String、Array、TypedArray、Map、Set はすべてビルトイン反復可能オブジェクトである。  
+これらのオブジェクトはすべて、そのプロトタイプオブジェクトに `Symbol.iterator` メソッドを備えている。
+
+## 反復可能オブジェクトに関する構文
+
+### for-of ループ
+
+反復可能オブジェクトに対して、反復的な処理をするループを作成する。  
+
+### スプレッド構文
+
+反復可能オブジェクトを展開することができる。
+
+### 分割代入
 
 
 
@@ -27,3 +51,5 @@
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Iterators_and_Generators
 - https://qiita.com/kura07/items/cf168a7ea20e8c2554c6
 - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol
+- https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...of
+
