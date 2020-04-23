@@ -18,6 +18,7 @@ async function waitWithAwait() {
   const num3 = await waitTime(3000)
   console.log("-----------end")
 
+  // ここでPromiseを返す必要はない。暗黙的にPromise<boolean>が返されている
   return true
 }
 
